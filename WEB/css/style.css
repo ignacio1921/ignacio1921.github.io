@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+:root{
+    --primary:#0ea5e9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Orbitron', sans-serif;
+    background:#f1f5f9;
+    color:#0f172a;
+}
+
+/* NAVBAR */
+.navbar{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 50px;
+    border-bottom:30px solid var(--primary);
+}
+
+.navbar img{
+    width:200px;
+}
+
+.navbar h1{
+    font-size: 25px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+}
+
+/* =========================
+   HERO CONTAINER
+========================= */
+
+.hero{
+    padding:100px 80px;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    flex-wrap:wrap;
+    position:relative;
+}
+
+/* =========================
+   BLOQUE IMÁGENES
+========================= */
+
+.hero-image{
+    position:relative;
+    width:330px;
+    height:330px;
+}
+
+/* FOTO PERFIL */
+.hero-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:25px;
+    border:5px solid var(--primary);
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    animation:floatProfile 6s ease-in-out infinite;
+    transition:0.3s;
+}
+
+.hero-image img:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   LOGO SUPERPUESTO
+========================= */
+
+.hero-logo{
+    position:absolute;
+    margin-left: 400px;
+    margin-bottom: 350px;
+    width:190px;
+    z-index:3;
+}
+
+.hero-logo img{
+    width:600px;
+    height:auto;
+    filter:drop-shadow(0 0 15px rgba(14,165,233,0.6));
+    transition:0.3s;
+}
+
+.hero-logo img:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   TEXTO HERO
+========================= */
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text h2{
+    font-size:36px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.hero-text p{
+    font-size:18px;
+    opacity:0.8;
+    margin-bottom:20px;
+}
+
+/* BOTÓN CTA PRO */
+.cta{
+    display:inline-block;
+    padding:14px 30px;
+    background:var(--primary);
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    transition:0.3s;
+    box-shadow:0 8px 20px rgba(14,165,233,0.4);
+}
+
+.cta:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(14,165,233,0.6);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes floatProfile{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-12px); }
+}
+
+@keyframes floatLogo{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-18px); }
+}
+
+/* =========================
+   RESPONSIVE PRO
+========================= */
+
+@media (max-width:900px){
+
+    .hero-container{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+    }
+
+    .hero-image{
+        width:260px;
+        height:260px;
+    }
+
+    .hero-logo{
+        width:90px;
+        bottom:-20px;
+        right:-20px;
+    }
+
+    .hero-text h2{
+        font-size:28px;
+    }
+
+}
+
+
+/* SECTIONS */
+.section{
+    text-align:center;
+}
+
+.section h2{
+    margin:20px 0;
+}
+
+/* ABOUT */
+.about{
+    max-width:600px;
+    margin:auto;
+}
+
+.about-text p{
+    margin-bottom:15px;
+    line-height:1.6;
+    font-size:17px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-container{
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    padding:18px 20px;
+    border-radius:12px;
+    border:1px solid var(--primary);
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+
+.skill span{
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.skill-desc{
+    font-size:14px;
+    color:#666;
+    margin-bottom:14px;
+}
+
+.skill-bar{
+    height:8px;
+    background:#e6e6e6;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.skill-level{
+    height:100%;
+    background:var(--primary);
+    border-radius:10px;
+    animation:loadSkill 1.5s ease;
+}
+
+@keyframes loadSkill{
+    from{ width:0; }
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .skills-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .skills-container{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    max-width:700px;
+    margin:50px auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:20px;
+    top:0;
+    width:2px;
+    height:100%;
+    background:var(--primary);
+}
+
+.timeline-item{
+    margin-bottom:40px;
+    padding-left:60px;
+    position:relative;
+}
+
+.dot{
+    position:absolute;
+    left:12px;
+    top:8px;
+    width:16px;
+    height:16px;
+    background:var(--primary);
+    border-radius:50%;
+    border:3px solid white;
+}
+
+.content{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid var(--primary);
+    transition:0.3s;
+}
+
+.content:hover{
+    transform:translateX(6px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    position:relative;
+    width:250px;
+    padding:15px;
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    overflow:visible;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+/* PANEL LATERAL */
+.card-info{
+    position:absolute;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#2b2b2b;
+    color:white;
+    padding:20px;
+    border-radius:12px;
+    text-align:left;
+    opacity:0;
+    transform:translateY(10px);
+    transition:0.3s;
+    pointer-events:none;
+    z-index:5;
+}
+
+.card:hover .card-info{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+}
+
+.card-info ul{
+    padding-left:18px;
+}
+
+.card-info li{
+    margin-bottom:10px;
+}
+
+/* POSICIONES PANEL */
+.card-right .card-info{
+    right:110%;
+}
+
+.card-left .card-info{
+    left:110%;
+}
+
+/* ================= CONTACT ================= */
+
+.email{
+    display:inline-block;
+    margin-top:20px;
+    font-size:18px;
+    text-decoration:none;
+    color:var(--primary);
+}
+
+/* =========================
+   CERTIFICACIONES
+========================= */
+
+#certificaciones{
+    margin-top:60px;
+}
+
+/* Grid */
+.cert-grid{
+    max-width:900px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
+    justify-items:center;
+}
+
+/* Card */
+.cert-card{
+    width:100%;
+    max-width:280px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid var(--primary);
+    text-align:center;
+    transition:0.3s ease;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Hover */
+.cert-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagen certificado */
+.cert-card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    background:#f8fafc;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+/* Zoom suave */
+.cert-card:hover img{
+    transform:scale(1.05);
+}
+
+/* Texto */
+.cert-card p{
+    font-size:15px;
+    font-weight:500;
+    line-height:1.4;
+    color:#0f172a;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:60px;
+    padding:25px 0;
+    text-align:center;
+    background:#111;
+    color:#aaa;
+    font-size:14px;
+}
+
+footer a{
+    color:var(--primary);
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:white;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.7s;
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
